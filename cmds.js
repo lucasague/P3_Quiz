@@ -161,6 +161,7 @@ exports.testCmd = (rl, id) => {
 				//	biglog('Correcta :)', 'green');
 				//	rl.prompt();
 				//}, 1000);
+				rl.prompt();
 			}
 			else{
 				log('  Su respuesta es incorrecta', 'red');
@@ -169,9 +170,9 @@ exports.testCmd = (rl, id) => {
 				//	biglog('Incorrecta :(', 'red');
 				//	rl.prompt();
 				//}, 1000);
+				rl.prompt();
 			}
 		});
-		rl.prompt();
     	}
     	catch(error){
     		errorlog(error.message);
