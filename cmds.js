@@ -41,7 +41,8 @@ exports.listCmd = rl => {
 exports.showCmd = (rl, id) => {
     
     if(typeof id === "undefined"){
-    	//Peligroso: errorlog(`Falta el parámetro id`);
+    	//errorlog(`Falta el parámetro id`);
+	//peligroso
     	model.getAll().forEach((quiz, id) => {
 			log(`  [${colorize(id, 'blue')}]: ${quiz.question}`);
 		});
@@ -154,19 +155,20 @@ exports.testCmd = (rl, id) => {
 			const quiz = model.getByIndex(id);
 			rl.question(`  ${colorize(quiz.question,'blue')} `, ans => {
 				if(ans.trim().toLowerCase()===quiz.answer.toLowerCase()){
-					log('  Su respuesta es...');
-					//peligroso
-					process.stdout.isTTY && setTimeout(() => {
-						biglog('Correcta :)', 'green');
-						rl.prompt();
-					}, 1000);
+					log('  Su respuesta es correcta', 'green');
+					//log('  Su respuesta es...');
+					//process.stdout.isTTY && setTimeout(() => {
+					//	biglog('Correcta :)', 'green');
+					//	rl.prompt();
+					//}, 1000);
 				}
 				else{
-					log('  Su respuesta es...');
-					process.stdout.isTTY && setTimeout(() => {
-						biglog('Incorrecta :(', 'red');
-						rl.prompt();
-					}, 1000);
+					log('  Su respuesta es incorrecta', 'red');
+					//log('  Su respuesta es...');
+					//process.stdout.isTTY && setTimeout(() => {
+					//	biglog('Incorrecta :(', 'red');
+					//	rl.prompt();
+					//}, 1000);
 				}
 			});
 			rl.prompt();
