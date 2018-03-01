@@ -197,6 +197,7 @@ exports.playCmd = rl => {
 		if(still.length === 0){
 
 			log('  No hay más preguntas','blue');
+			log('  Fin del juego', 'blue');
 			biglog(`¡ Has acertado ${score} de ${model.count()} ! :D`, 'green');
 			rl.prompt();
 
@@ -217,6 +218,7 @@ exports.playCmd = rl => {
 				}
 				else{
 					log('  Respuesta incorrecta...', 'red');
+					log('  Fin del juego', 'blue');
 					biglog(`¡ Has acertado ${score} de ${model.count()} ! :|`, 'blue');
 					rl.prompt();
 				}
