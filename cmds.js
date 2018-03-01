@@ -218,6 +218,7 @@ exports.playCmd = rl => {
 				else{
 					log('  Respuesta incorrecta...', 'red');
 					biglog(`¡ Has acertado ${score} de ${model.count()} ! :|`, 'blue');
+					break;
 					rl.prompt();
 				}
 
