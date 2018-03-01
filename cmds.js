@@ -151,27 +151,27 @@ exports.testCmd = (rl, id) => {
     	rl.prompt();
     }
     else{
-		try{
-			const quiz = model.getByIndex(id);
-			rl.question(`  ${colorize(quiz.question,'blue')} `, ans => {
-				if(ans.trim().toLowerCase()===quiz.answer.toLowerCase()){
-					log('  Su respuesta es correcta', 'green');
-					//log('  Su respuesta es...');
-					//process.stdout.isTTY && setTimeout(() => {
-					//	biglog('Correcta :)', 'green');
-					//	rl.prompt();
-					//}, 1000);
-				}
-				else{
-					log('  Su respuesta es incorrecta', 'red');
-					//log('  Su respuesta es...');
-					//process.stdout.isTTY && setTimeout(() => {
-					//	biglog('Incorrecta :(', 'red');
-					//	rl.prompt();
-					//}, 1000);
-				}
-			});
-			rl.prompt();
+	try{
+		const quiz = model.getByIndex(id);
+		rl.question(`  ${colorize(quiz.question,'blue')} `, ans => {
+			if(ans.trim().toLowerCase()===quiz.answer.toLowerCase()){
+				log('  Su respuesta es correcta', 'green');
+				//log('  Su respuesta es...');
+				//process.stdout.isTTY && setTimeout(() => {
+				//	biglog('Correcta :)', 'green');
+				//	rl.prompt();
+				//}, 1000);
+			}
+			else{
+				log('  Su respuesta es incorrecta', 'red');
+				//log('  Su respuesta es...');
+				//process.stdout.isTTY && setTimeout(() => {
+				//	biglog('Incorrecta :(', 'red');
+				//	rl.prompt();
+				//}, 1000);
+			}
+		});
+		rl.prompt();
     	}
     	catch(error){
     		errorlog(error.message);
