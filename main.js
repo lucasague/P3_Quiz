@@ -13,7 +13,7 @@ const rl = readline.createInterface({
     output: process.stdout,
     prompt: colorize("quiz> ", 'blue'),
     completer: (line) => {
-        const completions = 'h help add delete edit list test p play credits q quit'.split(' ');
+        const completions = 'h help add delete edit list show test p play credits q quit'.split(' ');
         const hits = completions.filter((c) => c.startsWith(line));
         // show all completions if none found
         return [hits.length ? hits : completions, line];
@@ -83,7 +83,7 @@ rl.on('line', (line) => {
     }
 })
 .on('close', () => {
-    console.log('Gracias por jugar!');
+    log('¡Gracias por jugar!', 'green');
     process.exit(0);
 });
 

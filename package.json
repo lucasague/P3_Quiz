@@ -1,7 +1,7 @@
 {
-  "name": "p2_quiz",
+  "name": "p3_quiz",
   "version": "1.0.0",
-  "description": "P2_Quiz",
+  "description": "P3_Quiz",
   "main": "main.js",
   "scripts": {
     "start": "node main.js",
@@ -16,6 +16,8 @@
   "license": "Unlicense",
   "dependencies": {
     "chalk": "^2.3.1",
-    "figlet": "^1.2.0"
+    "figlet": "^1.2.0",
+    "sequelize": "^4.35.2",
+    "sqlite3": "^3.1.13"
   }
 }
