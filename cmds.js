@@ -265,9 +265,9 @@ exports.playCmd = rl => {
 		    			playOne();
 		    		}
 		    		else{
-		    			log('    Respuesta incorrecta... ¡Fin del juego!', 'red');
-					log('Fin del juego', 'red');
-		    			biglog(`¡ Has acertado ${score} ! : |`, 'blue')
+		    			log('INCORRECTO.');
+					log('Fin del juego. Aciertos: ${score}');
+		    			biglog(`${score}`, 'blue')
 		    		}
 				});
 		    })
