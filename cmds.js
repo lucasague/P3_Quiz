@@ -8,16 +8,16 @@ const Sequelize = require('sequelize');
  */
 exports.helpCmd = rl => {
     log("  Commands:",'blue');
-    console.log("    h|help - Muestra esta ayuda");
-    console.log("    list - Lista los quizzes existentes");
-    console.log("    show <id> - Muestra la pregunta y la respuesta indicada");
-    console.log("    add - Añade una nueva pregunta interactivamente");
-    console.log("    delete <id> - Borra la pregunta indicada");
-    console.log("    edit <id> - Edita la pregunta indicada");
-    console.log("    test <id> - Prueba la pregunta indicada");
-    console.log("    p|play - Inicia el quiz en orden aleatorio");
-    console.log("    credits - Muestra los créditos del quiz");
-    console.log("    q|quit - Sale del programa");
+    log("    h|help - Muestra esta ayuda");
+    log("    list - Lista los quizzes existentes");
+    log("    show <id> - Muestra la pregunta y la respuesta indicada");
+    log("    add - Añade una nueva pregunta interactivamente");
+    log("    delete <id> - Borra la pregunta indicada");
+    log("    edit <id> - Edita la pregunta indicada");
+    log("    test <id> - Prueba la pregunta indicada");
+    log("    p|play - Inicia el quiz en orden aleatorio");
+    log("    credits - Muestra los créditos del quiz");
+    log("    q|quit - Sale del programa");
     rl.prompt();
 };
 
@@ -266,6 +266,7 @@ exports.playCmd = rl => {
 		    		}
 		    		else{
 		    			log('    Respuesta incorrecta... ¡Fin del juego!', 'red');
+					log('  Fin del juego', 'red');
 		    			biglog(`¡ Has acertado ${score} ! : |`, 'blue')
 		    		}
 				});
