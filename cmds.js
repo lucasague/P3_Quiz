@@ -231,7 +231,7 @@ exports.playCmd = rl => {
 
 	let i = 1;
 	models.quiz.findAll().each(quiz => {
-		still.push(i++);
+		still.push(quiz.id);
 		let thereWere = still.length;
     }).
     then(() => {
@@ -249,17 +249,17 @@ exports.playCmd = rl => {
 		}
 		else{
 
-			let r = Math.round(Math.random() * (still.length) + 0.5);
+			let r = Math.round(Math.random() * (still.length) - 0.5);
 
 			validateId(r)
-		    .then(r => models.quiz.findById(still[r-1]))
+		    .then(r => models.quiz.findById(still[r]))
 		    .then(quiz => {
 		    	if(!quiz){
 		    		throw new Error(`No existe un quiz asociado al id=${r}`);
 		    	}
 		    	return makeQuestion(rl, `  ${colorize(quiz.question, 'blue')}: `)
 		    	.then(ans => {
-		    		still.splice(r-1, 1);
+		    		still.splice(r, 1);
 		    		if(ans.trim().toLowerCase() === quiz.answer.toLowerCase()){
 		    			log(`CORRECTO - Lleva ${++score} aciertos.`);
 		    			playOne();
