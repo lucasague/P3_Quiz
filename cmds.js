@@ -241,8 +241,8 @@ exports.playCmd = rl => {
 	const playOne = () => {
 		if(still.length === 0){
 
-			log('No hay nada ms que preguntar.');
-			log(`Fin del juego. Aciertos: ${score}`, 'blue');
+			log('No hay nada más que preguntar.');
+			log(`Fin del juego. Aciertos: ${score}`);
 			biglog(score, 'magenta');
 			rl.prompt();
 
