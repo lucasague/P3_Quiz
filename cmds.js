@@ -249,7 +249,7 @@ exports.playCmd = rl => {
 		}
 		else{
 
-			let r = Math.round(Math.random() * (still.length) - 0.5);
+			let r = Math.round(Math.random() * (still.length) + 0.5);
 
 			validateId(r)
 		    .then(r => models.quiz.findById(still[r-1]))
