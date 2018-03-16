@@ -233,10 +233,10 @@ exports.playCmd = rl => {
 	models.quiz.findAll().each(quiz => {
 		still.push(quiz.id);
 		let thereWere = still.length;
-    }).
-    then(() => {
-    	playOne();
-    });
+	})
+	.then(() => {
+		playOne();
+	});
 
 	const playOne = () => {
 		if(still.length === 0){
@@ -252,27 +252,24 @@ exports.playCmd = rl => {
 			let r = Math.round(Math.random() * (still.length) - 0.5);
 
 			validateId(r)
-		    .then(r => models.quiz.findById(still[r]))
-		    .then(quiz => {
-		    	if(!quiz){
-		    		throw new Error(`No existe un quiz asociado al id=${r}`);
-		    	}
-		    	return makeQuestion(rl, `  ${colorize(quiz.question, 'blue')}: `)
-		    	.then(ans => {
-		    		still.splice(r, 1);
-		    		if(ans.trim().toLowerCase() === quiz.answer.toLowerCase()){
-		    			log(`CORRECTO - Lleva ${++score} aciertos.`);
-		    			playOne();
-		    		}
-		    		else{
-					log('Fin del juego. Aciertos: ${score}');
-		    			log('INCORRECTO.');
-		    			biglog(`${score}`, 'blue')
-		    		}
+			.then(r => models.quiz.findById(still[r]))
+			.then(quiz => {
+				if(!quiz){
+					throw new Error(`No existe un quiz asociado al id=${r}`);
+				}
+				return makeQuestion(rl, `  ${colorize(quiz.question, 'blue')}: `)
+				.then(ans => {
+					still.splice(r, 1);
+					if(ans.trim().toLowerCase() === quiz.answer.toLowerCase()){
+						log(`CORRECTO - Lleva ${++score} aciertos.`);
+						playOne();
+					}
+					else{
+						log('Fin del juego. Aciertos: ${score}');
+						log('INCORRECTO.');
+						biglog(`${score}`, 'blue')
+					}
 				});
-		    })
-	        .then(() => {
-				rl.prompt();
 			})
 			.catch(Sequelize.ValidationError, error => {
 				errorlog('El quiz es erróneo:');
@@ -282,8 +279,10 @@ exports.playCmd = rl => {
 			.catch(error => {
 				errorlog(error.message);
 				rl.prompt();
+			})
+			.then(() => {
+				rl.prompt();
 			});
-
 		}
 	};
 }
