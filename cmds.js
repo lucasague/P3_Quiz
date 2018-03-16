@@ -262,7 +262,7 @@ exports.playCmd = rl => {
 					still.splice(r, 1);
 					if(ans.trim().toLowerCase() === quiz.answer.toLowerCase()){
 						log(`CORRECTO - Lleva ${++score} aciertos.`);
-						playOne();
+						return playOne();
 					}
 					else{
 						log('Fin del juego. Aciertos: ${score}');
